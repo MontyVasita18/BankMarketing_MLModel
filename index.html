@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bank Marketing Prediction</title>
+</head>
+<body>
+  <h2>Bank Marketing Prediction Form</h2>
+  <form action="/predict" method="post">
+    {% for col in columns %}
+      <label for="{{ col }}">{{ col.capitalize() }}:</label><br>
+      <input type="text" name="{{ col }}" required><br><br>
+    {% endfor %}
+    <input type="submit" value="Predict">
+  </form>
+  {% if prediction is not none %}
+    <h3>Prediction: {{ prediction }}</h3>
+  {% endif %}
+</body>
+</html>
